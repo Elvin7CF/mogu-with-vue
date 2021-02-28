@@ -1,15 +1,234 @@
 <template>
   <div>
     <h1>分类</h1>
+    <div class="wrapper" ref="wrapper">
+      <ul class="content">
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+    </ul>
+    </div>
+    
   </div>
 </template>
 
 <script>
+// 导入better-scroll模块
+import BScroll from '@better-scroll/core'
+
 export default {
-  name: "Category"
+  name: "Category",
+  mounted() {
+    this.$nextTick(() => {
+       this.scroll = new BScroll(this.$refs.wrapper, {
+       });
+    })
+  },
 }
 </script>
 
-<style>
-
+<style scoped>
+.wrapper {
+  height: 200px;
+  background: pink;
+  /* 原生实现滚动 */
+  /* overflow-y: scroll; */
+  overflow: hidden;
+}
 </style>

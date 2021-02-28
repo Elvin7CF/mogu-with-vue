@@ -7,7 +7,7 @@
       <slot name="item-icon-active"></slot>
     </div>
     <!-- 通过计算属性，根据传入的颜色改变isActive状态时的字体颜色 -->
-    <div :style="activeStyle">
+    <div class="title" :style="activeStyle">
       <slot name="item-text"></slot>
     </div>
   </div>
@@ -54,8 +54,12 @@ export default {
   flex: 1;
   text-align: center;
   height: 49px;
-  font-size: 14px;
-  color: gray;
+  font-size: 12px;
+  color: var(--color-text);
+}
+
+.tab-bar-item .title {
+  padding-top: 4px;
 }
 
 .tab-bar-item img {

@@ -19,7 +19,9 @@ export default {
     }
   },
   data(){
-    return { currentIndex: 0 }
+    return { 
+      currentIndex: 0,
+    }
   },
   methods: {
     itemClick(index, item){
@@ -31,14 +33,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .tab-control {
   background: #fff;
   display: flex;
   text-align: center;
   /* 停留属性 */
-  position: sticky;
-  top: 44px;
+  /* position: sticky; */
+  /* top: 44px; */
 }
 .control-item {
   flex: 1;

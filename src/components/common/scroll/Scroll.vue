@@ -1,8 +1,13 @@
 <template>
   <div class="wrapper" ref="wrapper">
+    
     <div class="content">
-      <slot></slot>  
+      <slot name="content"></slot>  
     </div>
+    <div>
+      <slot name="fixed"></slot>
+    </div>
+    
   </div>
 </template>
 
@@ -14,7 +19,7 @@ import Pullup from '@better-scroll/pull-up'
 import MouseWheel from '@better-scroll/mouse-wheel'
 import ObserveDom from '@better-scroll/observe-dom'
 BScroll.use(MouseWheel)
-BScroll.use(ObserveDom)
+// BScroll.use(ObserveDom)
 BScroll.use(Pullup)
 
 export default {  
@@ -60,9 +65,16 @@ export default {
     scrollTo(x, y, time=500){
       this.bscroll.scrollTo(x,y,time)
     },
+    // 完成下拉，允许下次下拉
     finishPullUp(){
-      this.bscroll.finishPullUp()
-      this.bscroll.refresh()
+      this.bscroll.finishPullUp();
+    },
+    // 刷新scroll，重新计算可滑动区域
+    refreshScroll(){
+      this.bscroll.refresh();
+    },
+    getScrollY() {
+      return this.bscroll ? this.bscroll.y : 0;
     }
 
   }
@@ -70,4 +82,11 @@ export default {
 </script>
 
 <style scoped>
+
+/* .title {
+   background: red;
+  text-align: center;
+  position: fixed;
+  top: 100px
+} */
 </style>

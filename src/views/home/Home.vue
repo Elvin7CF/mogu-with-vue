@@ -1,16 +1,23 @@
 <template>
   <div id="home">
     <nav-bar class="home-nav">
-      <div slot="center">购物街</div>
+      <div slot="center">猪猪的衣柜</div>
     </nav-bar>
     <scroll ref="scroll" class="scroll-wrapper"
            :probeType="3" @scrollPos="showBacktop" 
            :pullUpLoad="true" @pullingUp="pullingUpHandler">
-      <home-swiper :banners="banners"></home-swiper>
-      <recommend-view :recommends="recommends"></recommend-view>
-      <feature-view></feature-view>
-      <tab-control :titles="['流行','新款','精选']" @typeClick="typeChange"></tab-control>
-      <goods-list :goodsType="showGoods"></goods-list>
+      <div slot="content">
+        <home-swiper :banners="banners" @swiperImageLoad="swiperImageLoad"></home-swiper>
+        <recommend-view :recommends="recommends"></recommend-view>
+        <feature-view></feature-view>
+        <tab-control ref="tabControl" :titles="['流行','新款','精选']"
+                     @typeClick="typeChange" class="tab-control"></tab-control>
+        <goods-list :goodsType="showGoods"></goods-list>
+      </div>
+      <div slot="fixed">
+        <tab-control ref="tabControlFixed" v-show="isShowtabControl" :titles="['流行','新款','精选']"
+                    @typeClick="typeChange" class="tab-control-fixed"></tab-control>
+      </div>
     </scroll>
     <!-- 组件添加事件必须附加native属性 -->
     <back-top @click.native="backtopClick" class="back-top" v-show="isShowBacktop">
@@ -43,6 +50,8 @@ import FeatureView from './childComps/FeatureView'
 // 导入获取主页数据的方法
 import { getHomeMultidata, getHomeGoods } from 'network/home'
 
+// 导入防抖函数
+import {debounce} from 'common/debounce'
 export default {
   name: "Home",
   components: {
@@ -67,7 +76,13 @@ export default {
       // 当前分类
       currentType: 'pop',
       // 是否显示返回顶部图标
-      isShowBacktop: false
+      isShowBacktop: false,
+      // 记录吸顶时的高度
+      tabOffsetTop: 0,
+      // 是否显示tab-control-fixed
+      isShowtabControl: false,
+      // 离开Home组件时保存scroll的y坐标
+      scrollY: 0
     }
   },
   created() {
@@ -76,6 +91,23 @@ export default {
     this.getGoods('pop');
     this.getGoods('new');
     this.getGoods('sell');
+  },
+  mounted(){
+    // 监听图片加载完毕
+    const refresh = debounce(this.$refs.scroll.refreshScroll, 200);
+    this.$bus.$on('itemImgeLoad', () => {
+      refresh();
+    })
+  },
+  activated(){
+    // console.log("activated");
+    // console.log(this.scrollY);
+    this.$refs.scroll.scrollTo(0, this.scrollY, 0);
+    this.$refs.scroll.refreshScroll();
+  },
+  deactivated(){
+    // console.log("deactivated");
+    this.scrollY = this.$refs.scroll.getScrollY();
   },
   computed: {
     showGoods(){
@@ -97,19 +129,34 @@ export default {
           this.currentType = 'sell';
           break;
       }
+      // 点击分类时，同时修改两个tabcontrol选中的分类
+      this.$refs.tabControlFixed.currentIndex = index;
+      this.$refs.tabControl.currentIndex = index;
     },
     backtopClick() {
       this.$refs.scroll.scrollTo(0,0)
     },
-    // 显示组件
+    // 监听滚动，显示组件
     showBacktop(pos) {
-      this.isShowBacktop = pos.y < -1700
+      this.isShowBacktop = pos.y < -1700,
+      this.isShowtabControl = (-pos.y) > this.tabOffsetTop;
+      // console.log("图片高度", this.tabOffsetTop);
+      // console.log("是否显示", this.isShowtabControl);
+      // console.log("y高度",-pos.y);
     },
+
     // 处理下拉加载更多
     pullingUpHandler() {
       // 获取更多数据
       this.getGoods(this.currentType);
       this.$refs.scroll.finishPullUp();
+    },
+
+    // 获取tapControp下模版的offsettop值
+    swiperImageLoad(){
+      // offsettop：获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置
+      // console.log("swiper", this.$refs.tabControl.$el.offsetTop);
+      this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop;
     },
     /************ 网络请求相关方法 ************/
     // 获取轮播图和推荐数据
@@ -119,7 +166,6 @@ export default {
         this.recommends = res.data.recommend.list;
       })
     },
-
     // 根据页数和组别获取商品数据
     getGoods(type){
       const nextPage = this.goods[type].page+1;
@@ -127,7 +173,7 @@ export default {
         let nextList = res.data.list;
         this.goods[type].list.push(...nextList);
         this.goods[type].page += 1;
-      
+        
       })
     },
     
@@ -137,6 +183,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
 #home {
   padding-top: 44px;
 }
@@ -144,10 +191,18 @@ export default {
 .home-nav {
   background: var(--color-tint);
   color: #fff;
-  font-weight: 700;
   position: fixed;
   left: 0; right: 0; top: 0;
   z-index: 1;
+  font-size: 20px;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+.tab-control-fixed {
+  position: fixed;
+  top: 44px;
+  left: 0;
+  right: 0;
 }
 
 .scroll-wrapper {

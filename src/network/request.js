@@ -11,7 +11,7 @@ export function request (config) {
     // 处理数据
     return response.data;
   }, (err) => {
-    console.log(err);
+    // console.log(err);
   })
 
 

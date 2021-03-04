@@ -1,13 +1,7 @@
 <template>
-  <div class="wrapper" ref="wrapper">
-    
-    <div class="content">
-      <slot name="content"></slot>  
-    </div>
-    <div>
-      <slot name="fixed"></slot>
-    </div>
-    
+  <div ref="wrapper">
+    <slot name="content"></slot>
+    <slot name="fixed"></slot>
   </div>
 </template>
 
@@ -19,7 +13,7 @@ import Pullup from '@better-scroll/pull-up'
 import MouseWheel from '@better-scroll/mouse-wheel'
 import ObserveDom from '@better-scroll/observe-dom'
 BScroll.use(MouseWheel)
-// BScroll.use(ObserveDom)
+BScroll.use(ObserveDom)
 BScroll.use(Pullup)
 
 export default {  
@@ -29,9 +23,11 @@ export default {
       type: Number,
       default: 0
     },
+
+    // 装了该插件就一定要用，不然会报错
     pullUpLoad: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data(){
@@ -46,10 +42,10 @@ export default {
     // 初始化bs插件
     initBscroll(){
       this.bscroll = new BScroll(this.$refs.wrapper, {
-        // observeDOM: true,
+        observeDOM: true,
         mouseWheel: true,
         click: true,
-        probeType: this.probeType,
+        probeType: this.probeType || 0,
         pullUpLoad: this.pullUpLoad
       });
       // 实时监听滑轮位置,pos(x,y)

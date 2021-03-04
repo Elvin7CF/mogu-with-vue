@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <nav-bar class="home-nav">
-      <div slot="center">猪猪的衣柜</div>
+      <div slot="center">蘑菇街</div>
     </nav-bar>
     <scroll ref="scroll" class="scroll-wrapper"
            :probeType="3" @scrollPos="showBacktop" 
@@ -49,9 +49,9 @@ import FeatureView from './childComps/FeatureView'
 
 // 导入获取主页数据的方法
 import { getHomeMultidata, getHomeGoods } from 'network/home'
-
 // 导入防抖函数
-import {debounce} from 'common/debounce'
+import { debounce } from 'common/debounce'
+
 export default {
   name: "Home",
   components: {
@@ -138,7 +138,7 @@ export default {
     },
     // 监听滚动，显示组件
     showBacktop(pos) {
-      this.isShowBacktop = pos.y < -1700,
+      this.isShowBacktop = pos.y < -1700;
       this.isShowtabControl = (-pos.y) > this.tabOffsetTop;
       // console.log("图片高度", this.tabOffsetTop);
       // console.log("是否显示", this.isShowtabControl);

@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-    <img :src="goods.show.img" :alt="goods.title" @load="imgLoaded">
+    <img :src="getImg" :alt="goods.title" @load="imgLoaded" @click="goodsClick">
     <div class="goods-info">
       <p class="title">{{goods.title}}</p>
       <span class="price">¥{{goods.price}}</span>
@@ -27,12 +27,21 @@ export default {
     imgLoaded(){
       // 监听图片，加载完毕发射事件给事件总线
       this.$bus.$emit("itemImgeLoad");
+    },
+    goodsClick(){
+      // 跳转到商品id路由
+      this.$router.push('/detail/'+ this.goods.iid)
     }
+  },
+  computed: {
+    getImg() {
+        return this.goods.img || this.goods.image || this.goods.show.img
+      }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .goods {
   width: 48%;
   padding-bottom: 5px;

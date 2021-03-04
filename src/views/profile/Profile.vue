@@ -2,48 +2,30 @@
   <div>
     <h1>个人信息</h1>
     <scroll class="wrapper">
-      <ul>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+     <div class="content" slot="content">
+       <ul>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li></li>
+         <li></li>
+       </ul>
+     </div>
     </scroll>
   </div>
 </template>

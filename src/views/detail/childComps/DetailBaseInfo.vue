@@ -5,7 +5,7 @@
       <div class="info-price">
         <span class="new-price">{{goods.newPrice}}</span>
         <span class="old-price">{{goods.oldPrice}}</span>
-        <span class="discount">{{goods.discount}}</span>
+        <span v-if="goods.discount" class="discount">{{goods.discount}}</span>
       </div>
       <div class="info-others">
         <span>{{goods.columns[0]}}</span>

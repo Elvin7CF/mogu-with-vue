@@ -1,15 +1,47 @@
 <template>
-  <div>
-    <h1>购物车</h1>
+  <div class="cart">
+    <nav-bar class="cart-nav">
+      <div slot="center">购物车({{cartCount}})</div>
+    </nav-bar>
+    <cart-list :cartList="cartList"></cart-list>
+    <cart-bottom></cart-bottom>
   </div>
 </template>
 
 <script>
+import NavBar from 'components/common/navbar/NavBar.vue'
+import CartList from './childComps/CartList.vue';
+import CartBottom from './childComps/CartBottom.vue';
+
 export default {
-  name: "Cart"
+  name: "Cart",
+  components: {
+    NavBar,
+    CartList,
+    CartBottom,
+  },
+  computed: {
+    cartCount(){
+      return this.$store.getters.cartCount;
+    },
+    cartList(){
+      return this.$store.getters.cartList;
+    }
+  },
 }
 </script>
 
-<style>
+<style scoped>
+.cart {
+  height: 100vh;
+  background: #f2f2f2;
+}
+
+.cart-nav {
+  background: #ff8198;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
 
 </style>

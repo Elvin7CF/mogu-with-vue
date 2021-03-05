@@ -3,7 +3,7 @@
     <keep-alive exclude="Detail">  
       <router-view/>
     </keep-alive>
-    <main-tab-bar></main-tab-bar>
+    <main-tab-bar class="main-tab-bar"></main-tab-bar>
   </div>
 </template>
 
@@ -22,4 +22,7 @@ export default {
 <style>
 @import 'assets/css/base.css';
 
+.main-tab-bar {
+  background: #fff;
+}
 </style>

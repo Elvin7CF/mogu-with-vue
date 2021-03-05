@@ -12,10 +12,11 @@
         <detail-recommend ref="recommend" :recommendList="recommendList"></detail-recommend>
       </div>
     </scroll>
-    <detail-bottom-bar></detail-bottom-bar>
+    <detail-bottom-bar @addToCart="addToCart"></detail-bottom-bar>
     <back-top @click.native="backtopClick" class="back-top" v-show="isShowBacktop">
       <img src="~assets/img/common/top.png">
     </back-top>
+    <toast></toast>
   </div>
 </template>
 
@@ -36,6 +37,7 @@ import Scroll from 'components/common/scroll/Scroll'
 import BackTop from 'components/content/backTop/BackTop.vue';
 
 import {getDetailById, getRecommend, Goods, Shop, GoodsParams} from 'network/detail'
+import Toast from '../../components/common/toast/Toast.vue';
 
 export default {
   name: "Detail",
@@ -142,6 +144,26 @@ export default {
     backtopClick() {
       this.$refs.scroll.scrollTo(0,0)
     },
+
+    // 添加到购物车功能,把数据保存
+    addToCart() {
+      const product = {};
+      product.iid = this.iid;
+      product.imgURL = this.topImages[0];
+      product.title = this.goods.title;
+      product.desc = this.goods.desc;
+      product.newPrice = this.goods.nowPrice;
+      product.count = 1;
+      product.checked = true
+
+      // 调用actions的方法
+      this.$store.dispatch('addCart', product).then(res => {
+        // 调用Toast里到show方法
+        this.$toast.show(res);
+      })
+
+    }
+
   },
   components: {
     DetailNavBar,
@@ -155,6 +177,7 @@ export default {
     DetailRecommend,
     DetailBottomBar,
     BackTop,
+    Toast,
   },
 
 }

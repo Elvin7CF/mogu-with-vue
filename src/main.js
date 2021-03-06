@@ -13,7 +13,7 @@ Vue.prototype.$bus = new Vue()
 // 使用自己的Toast插件
 Vue.use(toast);
 
-// 使用Vue-lazyload插件
+// 使用Vue-lazyload插件,图片懒加载
 Vue.use(VueLazyload, {
   loading: require('./assets/img/common/girl.png')
 })

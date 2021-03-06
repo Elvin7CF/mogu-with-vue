@@ -46,7 +46,7 @@ export class GoodsParams {
   constructor(info, rule) {
     // 有些商品可能不存在image值
     this.image = info.images ? info.images[0] : '';
-    this.infos = info.set;
-    this.sizes = rule.tables[0]; 
+    this.infos = info.set ? info.set : [];
+    this.sizes = rule.tables ? rule.tables[0] : [];
   }
 }

@@ -38,7 +38,9 @@ export default {
 }
 
 .cart-nav {
-  background: #ff8198;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size: 20px;
+  background: var(--color-tint);
   color: #fff;
   margin-bottom: 5px;
 }

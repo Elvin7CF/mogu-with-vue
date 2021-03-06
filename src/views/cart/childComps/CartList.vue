@@ -35,12 +35,12 @@ export default {
 .cart-list {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
 }
 
 .wrapper {
   /* 父属性不能没有高度，父属性设置为100vh */
-  height: calc(100% - 44px);
+  height: calc(100% - 94px);
   overflow: hidden;
 }
 

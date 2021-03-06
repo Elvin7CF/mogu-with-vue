@@ -76,6 +76,8 @@ export default {
       this.detailInfo = data.detailInfo;
 
       // 获取商品其他参数
+      // 商品参数可能不存在
+      data.itemParams.rule = data.itemParams.rule ? data.itemParams.rule : {}
       this.goodsParams = new GoodsParams(data.itemParams.info, data.itemParams.rule);
 
       // 获取商品评论信息

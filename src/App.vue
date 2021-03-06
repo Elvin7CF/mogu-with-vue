@@ -21,6 +21,7 @@ export default {
 
 <style>
 @import 'assets/css/base.css';
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
 
 .main-tab-bar {
   background: #fff;

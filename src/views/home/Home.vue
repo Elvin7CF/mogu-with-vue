@@ -183,27 +183,19 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
-#home {
-  padding-top: 44px;
-}
-
 .home-nav {
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size: 20px;
   background: var(--color-tint);
   color: #fff;
-  position: fixed;
-  left: 0; right: 0; top: 0;
-  z-index: 1;
-  font-size: 20px;
-  font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
 
-.tab-control-fixed {
+/* .tab-control-fixed {
   position: fixed;
   top: 44px;
   left: 0;
   right: 0;
-}
+} */
 
 .scroll-wrapper {
   overflow: hidden;
